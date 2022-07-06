@@ -1,0 +1,9 @@
+.cart {
+  position: absolute;
+  top: 4.75rem;
+  right: 0.875rem;
+  background-color: var(--accent-color);
+  width: 30%;
+  border-radius: 1rem;
+  /*box-shadow: 0rem 1rem 1rem #7c64cb;*/
+}
