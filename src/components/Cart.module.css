@@ -2,8 +2,7 @@
   position: absolute;
   top: 4.75rem;
   right: 0.875rem;
-  background-color: var(--accent-color);
+  background-color: rgba(240, 87, 34, 0.9);
   width: 30%;
-  border-radius: 1rem;
-  /*box-shadow: 0rem 1rem 1rem #7c64cb;*/
+  border-radius: 0.5rem;
 }

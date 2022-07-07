@@ -27,6 +27,9 @@ const visibleItems = createSlice({
     addVisibleItem(state, action) {
       state.push(action.payload);
     },
+    cleanVisibleItems() {
+      return [];
+    },
   },
 });
 
@@ -40,10 +43,63 @@ const cartItems = createSlice({
   },
 });
 
+const maxReached = createSlice({
+  name: "maxReached",
+  initialState: false,
+  reducers: {
+    maxIsReached() {
+      return true;
+    },
+  },
+});
+
+const mouseCat = createSlice({
+  name: "mouseCat",
+  initialState: false,
+  reducers: {
+    changeMouseCat(state) {
+      return !state;
+    },
+    mouseCatFalse() {
+      return false;
+    },
+  },
+});
+
+const whichCategory = createSlice({
+  name: "whichCategory",
+  initialState: "",
+  reducers: {
+    toThisCategory(state, action) {
+      return `${action.payload}`;
+    },
+    clearWhichCategory() {
+      return "";
+    },
+  },
+});
+
+const fade = createSlice({
+  name: "fade",
+  initialState: "",
+  reducers: {
+    fadeEffect() {
+      return " end";
+    },
+    resetFade() {
+      return "";
+    },
+  },
+});
+
 export const { changeCart } = cartState.actions;
 export const { addItem } = allItems.actions;
-export const { addVisibleItem } = visibleItems.actions;
+export const { addVisibleItem, cleanVisibleItems } = visibleItems.actions;
 export const { addCartItem } = cartItems.actions;
+export const { maxIsReached } = maxReached.actions;
+export const { changeMouseCat, mouseCatFalse } = mouseCat.actions;
+export const { toThisCategory, clearWhichCategory } = whichCategory.actions;
+export const { fadeEffect, resetFade } = fade.actions;
 
 export default configureStore({
   reducer: {
@@ -51,5 +107,9 @@ export default configureStore({
     allItems: allItems.reducer,
     visibleItems: visibleItems.reducer,
     cartItems: cartItems.reducer,
+    maxReached: maxReached.reducer,
+    mouseCat: mouseCat.reducer,
+    whichCategory: whichCategory.reducer,
+    fade: fade.reducer,
   },
 });

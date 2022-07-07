@@ -3,20 +3,20 @@ import { useSelector } from "react-redux";
 // import css module
 import styles from "./Item.module.css";
 
-function Item({ id }) {
+function Item({ id, index }) {
   const visibleItems = useSelector((state) => {
     return state.visibleItems;
   });
   return (
     <div className={styles.itemBox}>
       <div className={styles.imageContainer}>
-        <img src={visibleItems[id - 1].image} />
+        <img src={visibleItems[index].image} />
       </div>
-      <h4>{visibleItems[id - 1].title}</h4>
-      <h4>{`${visibleItems[id - 1].rating.rate} / ${
-        visibleItems[id - 1].rating.count
-      }`}</h4>
-      <h4>{visibleItems[id - 1].price}</h4>
+      <h3>{visibleItems[index].title}</h3>
+      <div className={styles.priceAndRating}>
+        <h4>{`Price: $${visibleItems[index].price}`}</h4>
+        <h5>{`Rating: ${visibleItems[index].rating.rate}`}</h5>
+      </div>
     </div>
   );
 }

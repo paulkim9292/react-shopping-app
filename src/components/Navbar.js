@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 // import redux states
 import { useDispatch } from "react-redux";
-import { changeCart } from "../store/store";
+import { changeCart, changeMouseCat } from "../store/store";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -21,10 +21,10 @@ function Navbar() {
             <b>All</b>
           </Link>
         </button>
-        <button>
-          <Link className={styles.tab} to="/category">
+        <button onClick={() => dispatch(changeMouseCat())}>
+          <div className={styles.tab}>
             <b>Category</b>
-          </Link>
+          </div>
         </button>
         <button>
           <Link className={styles.tab} to="/about">

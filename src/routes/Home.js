@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import redux states
 import { useDispatch, useSelector } from "react-redux";
-import { addVisibleItem } from "../store/store";
+import {
+  addVisibleItem,
+  maxIsReached,
+  cleanVisibleItems,
+  mouseCatFalse,
+} from "../store/store";
 // import components
 import Item from "../components/Item.js";
 // import css module
@@ -12,24 +17,44 @@ function Home() {
   const state = useSelector((state) => {
     return state;
   });
-  const [showItemNum, setShowItemNum] = useState();
 
   useEffect(() => {
-    const copy = state.allItems.slice(0, 10);
+    let lastItem = 10;
+    if (state.maxReached) {
+      lastItem = 20;
+    }
+    const copy = state.allItems.slice(0, lastItem);
     copy.map((value) => {
       dispatch(addVisibleItem(value));
     });
+    return () => {
+      dispatch(mouseCatFalse());
+      dispatch(cleanVisibleItems());
+    };
   }, []);
   //console.log(state.visibleItems);
 
   return (
     <div>
       <div className={styles.items}>
-        {state.visibleItems.map((item) => {
-          return <Item key={item.id} id={item.id} />;
+        {state.visibleItems.map((item, index) => {
+          return <Item key={item.id} id={item.id} index={index} />;
         })}
       </div>
-      <button onClick={() => {}}>more</button>
+      {state.maxReached ? null : (
+        <button
+          onClick={() => {
+            const copy = state.allItems.slice(10, 20);
+            copy.map((value) => {
+              dispatch(addVisibleItem(value));
+            });
+            dispatch(maxIsReached());
+          }}
+          className={styles.moreBtn}
+        >
+          load more... (더보기)
+        </button>
+      )}
     </div>
   );
 }

@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import css module
 import styles from "./Cart.module.css";
+// import redux states
+import { useDispatch, useSelector } from "react-redux";
+import { fadeEffect, resetFade } from "../store/store";
 
 function Cart() {
-  const [fade, setFade] = useState("");
+  const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return state;
+  });
   useEffect(() => {
-    setFade("end");
-    return () => {
-      setFade("");
-    };
+    dispatch(fadeEffect());
+  });
+  useEffect(() => {
+    dispatch(resetFade());
   }, []);
   return (
-    <div className={styles.cart + ` start ${fade}`}>
+    <div className={styles.cart + ` start${state.fade}`}>
       <h4>
         <b>Shopping Cart</b>
       </h4>
