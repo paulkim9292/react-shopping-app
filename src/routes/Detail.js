@@ -1,19 +1,21 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import styles from "./Detail.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {} from "../store/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const state = useSelector((state) => {
     return state;
   });
   const [tab, setTab] = useState(0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className={styles.detail}>

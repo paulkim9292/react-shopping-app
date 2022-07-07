@@ -52,7 +52,7 @@ function Home() {
           }}
           className={styles.moreBtn}
         >
-          load more... (더보기)
+          LOAD MORE
         </button>
       )}
     </div>
