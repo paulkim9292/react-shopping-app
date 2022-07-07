@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 // import redux states
 import { useDispatch } from "react-redux";
 import { toThisCategory } from "../store/store.js";
+import { useEffect, useState } from "react";
 
 function CategorySelect() {
   const dispatch = useDispatch();
+  const [fade, setFade] = useState("");
+  useEffect(() => {
+    setFade("end");
+    return () => {
+      setFade("");
+    };
+  }, []);
   return (
-    <div className={styles.categorySelect}>
+    <div className={styles.categorySelect + ` start ${fade}`}>
       <button
         onClick={() => {
           dispatch(toThisCategory("men's clothing"));

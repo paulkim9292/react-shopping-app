@@ -1,6 +1,5 @@
 import {
   addVisibleItem,
-  clearWhichCategory,
   cleanVisibleItems,
   mouseCatFalse,
 } from "../store/store.js";
@@ -28,8 +27,8 @@ function Category() {
       dispatch(addVisibleItem(value));
     });
     return () => {
-      dispatch(mouseCatFalse());
       dispatch(cleanVisibleItems());
+      dispatch(mouseCatFalse());
     };
   }, [state.whichCategory]);
   //console.log(state.visibleItems);
@@ -37,7 +36,6 @@ function Category() {
   useEffect(() => {
     return () => {
       dispatch(mouseCatFalse());
-      dispatch(clearWhichCategory());
     };
   }, []);
 

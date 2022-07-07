@@ -5,6 +5,7 @@ import "./App.css";
 // import routes
 import Home from "./routes/Home";
 import About from "./routes/About";
+import Detail from "./routes/Detail";
 // import components
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
@@ -55,6 +56,7 @@ function App() {
             <Route path="/category/women" element={<Category />} />
             <Route path="/category/jewelery" element={<Category />} />
             <Route path="/category/electronics" element={<Category />} />
+            <Route path={`/detail/:id`} element={<Detail />} />
           </Routes>
           {/*Cart*/}
           {state.cartState ? <Cart /> : null}

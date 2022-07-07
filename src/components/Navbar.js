@@ -18,17 +18,15 @@ function Navbar() {
         </button>
         <button>
           <Link className={styles.tab} to="/">
-            <b>All</b>
+            All
           </Link>
         </button>
         <button onClick={() => dispatch(changeMouseCat())}>
-          <div className={styles.tab}>
-            <b>Category</b>
-          </div>
+          <div className={styles.tab}>Category</div>
         </button>
         <button>
           <Link className={styles.tab} to="/about">
-            <b>About</b>
+            About
           </Link>
         </button>
       </div>
@@ -38,7 +36,7 @@ function Navbar() {
         }}
         className={styles.tab}
       >
-        <b>CART</b>
+        CART
       </button>
     </nav>
   );

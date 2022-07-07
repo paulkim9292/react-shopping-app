@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // import redux states
 import { useSelector } from "react-redux";
 // import css module
@@ -9,14 +10,16 @@ function Item({ id, index }) {
   });
   return (
     <div className={styles.itemBox}>
-      <div className={styles.imageContainer}>
-        <img src={visibleItems[index].image} />
-      </div>
-      <h3>{visibleItems[index].title}</h3>
-      <div className={styles.priceAndRating}>
-        <h4>{`Price: $${visibleItems[index].price}`}</h4>
-        <h5>{`Rating: ${visibleItems[index].rating.rate}`}</h5>
-      </div>
+      <Link to={`/detail/${id}`} className={styles.link}>
+        <div className={styles.imageContainer}>
+          <img className={styles.img} src={visibleItems[index].image} />
+        </div>
+        <h3>{visibleItems[index].title}</h3>
+        <div className={styles.priceAndRating}>
+          <h4>{`Price: $${visibleItems[index].price}`}</h4>
+          <h5>{`Rating: ${visibleItems[index].rating.rate}`}</h5>
+        </div>
+      </Link>
     </div>
   );
 }

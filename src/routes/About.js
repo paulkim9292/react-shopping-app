@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { mouseCatFalse } from "../store/store";
+import styles from "./About.module.css";
 
 function About() {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ function About() {
     };
   }, []);
   return (
-    <div>
+    <div className={styles.about}>
       <p>This is </p>
     </div>
   );

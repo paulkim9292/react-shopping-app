@@ -5,6 +5,8 @@ nav {
   background-color: var(--background-color);
   height: 4rem;
   width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 .navLeft {
@@ -18,11 +20,20 @@ button {
 }
 
 .tab {
-  padding: 0rem 3rem;
+  padding: 0.8rem 3rem;
   font-size: 1.5rem;
   font-style: oblique;
   text-decoration: none;
   color: var(--text-color);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab:hover {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  transition: all 0.3s ease-in-out;
 }
 
 .title {
