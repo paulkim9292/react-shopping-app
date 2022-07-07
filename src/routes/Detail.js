@@ -1,7 +1,7 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./Detail.module.css";
-import { useSelector } from "react-redux";
-import {} from "../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { addQuantity, initializeQuantity, addToCart } from "../store/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const state = useSelector((state) => {
     return state;
   });
@@ -16,6 +17,8 @@ function Detail() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  //const copy = state.allItems[id - 1];
+  //console.log(state.cart);
   return (
     <>
       <div className={styles.detail}>
@@ -34,7 +37,25 @@ function Detail() {
             <h3>{`Rating: ${state.allItems[id - 1].rating.rate}`}</h3>
             <h2>{`$${state.allItems[id - 1].price}`}</h2>
           </div>
-          <button className={styles.addToCart}>ADD TO CART</button>
+          <button
+            className={styles.addToCart}
+            onClick={() => {
+              const alreadyExist = state.cart.some((element) => {
+                return element.id == id;
+              });
+              if (!alreadyExist) {
+                dispatch(addToCart(state.allItems[id - 1]));
+                dispatch(initializeQuantity());
+              } else {
+                const thisIndex = state.cart.findIndex(
+                  (element) => element.id == id
+                );
+                dispatch(addQuantity(thisIndex));
+              }
+            }}
+          >
+            ADD TO CART
+          </button>
           <p className={styles.infoDescription}>
             {state.allItems[id - 1].description}
           </p>

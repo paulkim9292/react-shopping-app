@@ -3,11 +3,14 @@ import styles from "./Navbar.module.css";
 // import router
 import { Link } from "react-router-dom";
 // import redux states
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeCart, changeMouseCat } from "../store/store";
 
 function Navbar() {
   const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return state;
+  });
   return (
     <nav>
       <div className={styles.navLeft}>
@@ -36,7 +39,7 @@ function Navbar() {
         }}
         className={styles.tab}
       >
-        CART
+        {`CART(${state.cart.length})`}
       </button>
     </nav>
   );

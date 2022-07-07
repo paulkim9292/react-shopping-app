@@ -14,7 +14,11 @@ import Cart from "./components/Cart";
 import CategorySelect from "./components/CategorySelect";
 // import redux states
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "./store/store";
+import {
+  addItem,
+  copyFromOldCart,
+  copyFromOldCartQuantity,
+} from "./store/store";
 import Category from "./routes/Category";
 
 function App() {
@@ -36,7 +40,19 @@ function App() {
 
   useEffect(() => {
     getItems();
+    let savedCart = localStorage.getItem("cart");
+    savedCart = JSON.parse(savedCart);
+    dispatch(copyFromOldCart(savedCart));
+    let savedCartQuantity = localStorage.getItem("cartQuantity");
+    savedCartQuantity = JSON.parse(savedCartQuantity);
+    dispatch(copyFromOldCartQuantity(savedCartQuantity));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+    localStorage.setItem("cartQuantity", JSON.stringify(state.cartQuantity));
+  }, [state.cart, state.cartQuantity]);
+
   return (
     <div className="App">
       {loading ? (

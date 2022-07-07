@@ -2,7 +2,80 @@
   position: absolute;
   top: 4.75rem;
   right: 0.875rem;
-  background-color: rgba(240, 87, 34, 0.9);
+  background-color: var(--background-color);
+  border: 5px solid var(--accent-color);
   width: 30%;
   border-radius: 0.5rem;
+}
+
+.cartTitle {
+  border-bottom: 1px solid var(--accent-color);
+  height: 2rem;
+  font-size: 1.5rem;
+}
+
+.itemContainer {
+  display: flex;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.itemContainer img {
+  padding: 1rem;
+  width: 15%;
+  border-right: 1px solid var(--accent-color);
+}
+
+.titleAndPrice {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-right: 1px solid var(--accent-color);
+  padding: 0rem 1rem;
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  width: 30%;
+}
+
+.num {
+  font-size: 2.5rem;
+}
+
+.plusMinus {
+  font-size: 1.5rem;
+  padding: 0.3rem;
+}
+
+.removeAndTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.removeAndTotal button,
+.removeAndTotal p {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+.checkout {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.checkout:hover {
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
 }

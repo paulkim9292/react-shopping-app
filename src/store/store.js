@@ -33,16 +33,6 @@ const visibleItems = createSlice({
   },
 });
 
-const cartItems = createSlice({
-  name: "cartItems",
-  initialState: [],
-  reducers: {
-    addCartItem(state, action) {
-      state.push(action.payload);
-    },
-  },
-});
-
 const maxReached = createSlice({
   name: "maxReached",
   initialState: false,
@@ -76,22 +66,82 @@ const whichCategory = createSlice({
   },
 });
 
+const cart = createSlice({
+  name: "cart",
+  initialState: [],
+  reducers: {
+    addToCart(state, action) {
+      state.push(action.payload);
+    },
+    deleteFromCart(state, action) {
+      state.splice(action.payload, 1);
+    },
+    copyFromOldCart(state, action) {
+      if (action.payload !== null) {
+        return action.payload;
+      }
+    },
+    removeCart() {
+      return [];
+    },
+  },
+});
+
+const cartQuantity = createSlice({
+  name: "cartQuantity",
+  initialState: [],
+  reducers: {
+    initializeQuantity(state) {
+      state.push(1);
+    },
+    deleteQuantity(state, action) {
+      state.splice(action.payload, 1);
+    },
+    addQuantity(state, action) {
+      state[action.payload] += 1;
+    },
+    subQuantity(state, action) {
+      if (state[action.payload] !== 0) {
+        state[action.payload] -= 1;
+      }
+    },
+    copyFromOldCartQuantity(state, action) {
+      if (action.payload !== null) {
+        return action.payload;
+      }
+    },
+    removeCartQuantity() {
+      return [];
+    },
+  },
+});
+
 export const { changeCart } = cartState.actions;
 export const { addItem } = allItems.actions;
 export const { addVisibleItem, cleanVisibleItems } = visibleItems.actions;
-export const { addCartItem } = cartItems.actions;
 export const { maxIsReached } = maxReached.actions;
 export const { changeMouseCat, mouseCatFalse } = mouseCat.actions;
 export const { toThisCategory } = whichCategory.actions;
+export const { addToCart, deleteFromCart, copyFromOldCart, removeCart } =
+  cart.actions;
+export const {
+  initializeQuantity,
+  deleteQuantity,
+  addQuantity,
+  subQuantity,
+  copyFromOldCartQuantity,
+  removeCartQuantity,
+} = cartQuantity.actions;
 
 export default configureStore({
   reducer: {
     cartState: cartState.reducer,
     allItems: allItems.reducer,
     visibleItems: visibleItems.reducer,
-    cartItems: cartItems.reducer,
     maxReached: maxReached.reducer,
     mouseCat: mouseCat.reducer,
     whichCategory: whichCategory.reducer,
+    cart: cart.reducer,
+    cartQuantity: cartQuantity.reducer,
   },
 });
