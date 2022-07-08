@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import components
 import Item from "../components/Item.js";
 // import css module
-import styles from "./Home.module.css";
+import styles from "./All.module.css";
 
 function Category() {
   const dispatch = useDispatch();
@@ -34,6 +34,7 @@ function Category() {
   //console.log(state.visibleItems);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {
       dispatch(mouseCatFalse());
     };

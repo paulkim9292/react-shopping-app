@@ -14,10 +14,9 @@ function Item({ id, index }) {
         <div className={styles.imageContainer}>
           <img className={styles.img} src={visibleItems[index].image} />
         </div>
-        <h3>{visibleItems[index].title}</h3>
-        <div className={styles.priceAndRating}>
-          <h4>{`Price: $${visibleItems[index].price}`}</h4>
-          <h5>{`Rating: ${visibleItems[index].rating.rate}`}</h5>
+        <div className={styles.itemInfo}>
+          <h3>{visibleItems[index].title}</h3>
+          <p>{`$${visibleItems[index].price}`}</p>
         </div>
       </Link>
     </div>

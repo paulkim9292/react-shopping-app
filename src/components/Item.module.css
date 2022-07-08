@@ -10,6 +10,7 @@
   width: 15rem;
   height: 20rem;
   transition: all 0.3s ease-in-out;
+  z-index: 0;
 }
 
 .itemBox:hover {
@@ -33,11 +34,16 @@
   object-fit: contain;
 }
 
-.priceAndRating {
+.itemInfo {
   margin-top: 1rem;
   display: flex;
-  width: 80%;
-  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.itemInfo p {
+  font-size: 1.25rem;
 }
 
 .link {

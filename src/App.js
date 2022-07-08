@@ -1,17 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
 // import styles
 import "./App.css";
 // import routes
 import Home from "./routes/Home";
+import All from "./routes/All";
 import About from "./routes/About";
 import Detail from "./routes/Detail";
 // import components
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import CategorySelect from "./components/CategorySelect";
+import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 // import redux states
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -69,6 +70,7 @@ function App() {
           {/*ROUTES*/}
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/all" element={<All />} />
             <Route path="/about" element={<About />} />{" "}
             <Route path="/category/men" element={<Category />} />
             <Route path="/category/women" element={<Category />} />
@@ -78,15 +80,8 @@ function App() {
           </Routes>
           {/*Cart*/}
           {state.cartState ? <Cart /> : null}
-          <button className="toTopBtnContainer">
-            <FontAwesomeIcon
-              onClick={() => {
-                window.scrollTo(0, 0);
-              }}
-              className="toTopBtn"
-              icon={faCircleArrowUp}
-            />
-          </button>
+          <ScrollToTop />
+          <Footer />
         </>
       )}
     </div>

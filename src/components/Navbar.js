@@ -20,7 +20,7 @@ function Navbar() {
           </Link>
         </button>
         <button>
-          <Link className={styles.tab} to="/">
+          <Link className={styles.tab} to="/all">
             All
           </Link>
         </button>

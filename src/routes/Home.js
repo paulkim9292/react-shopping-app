@@ -1,16 +1,13 @@
-import { useEffect } from "react";
-// import redux states
+import styles from "./Home.module.css";
+import Item from "../components/Item";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import {
   addVisibleItem,
-  maxIsReached,
   cleanVisibleItems,
   mouseCatFalse,
 } from "../store/store";
-// import components
-import Item from "../components/Item.js";
-// import css module
-import styles from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
@@ -19,42 +16,34 @@ function Home() {
   });
 
   useEffect(() => {
-    let lastItem = 10;
-    if (state.maxReached) {
-      lastItem = 20;
-    }
-    const copy = state.allItems.slice(0, lastItem);
+    const copy = state.allItems.slice(0, 4);
     copy.map((value) => {
       dispatch(addVisibleItem(value));
     });
+    window.scrollTo(0, 0);
     return () => {
       dispatch(mouseCatFalse());
       dispatch(cleanVisibleItems());
     };
   }, []);
-  //console.log(state.visibleItems);
-
   return (
-    <div>
-      <div className={styles.items}>
-        {state.visibleItems.map((item, index) => {
-          return <Item key={item.id} id={item.id} index={index} />;
-        })}
+    <div className={styles.home}>
+      <img className={styles.frontImg} src={require("../img/home.jpg")} />
+      <div className={styles.newArrival}>
+        <div className={styles.newArrivalTitle}>
+          <p>NEW ARRIVAL</p>
+          <button>
+            <Link className={styles.tab} to="/all">
+              &gt; more
+            </Link>
+          </button>
+        </div>
+        <div className={styles.newArrivalItems}>
+          {state.visibleItems.map((item, index) => {
+            return <Item key={item.id} id={item.id} index={index} />;
+          })}
+        </div>
       </div>
-      {state.maxReached ? null : (
-        <button
-          onClick={() => {
-            const copy = state.allItems.slice(10, 20);
-            copy.map((value) => {
-              dispatch(addVisibleItem(value));
-            });
-            dispatch(maxIsReached());
-          }}
-          className={styles.moreBtn}
-        >
-          LOAD MORE
-        </button>
-      )}
     </div>
   );
 }

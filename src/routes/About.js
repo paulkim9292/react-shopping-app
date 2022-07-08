@@ -12,7 +12,7 @@ function About() {
   }, []);
   return (
     <div className={styles.about}>
-      <p>This is </p>
+      <p>ABOUT</p>
     </div>
   );
 }
