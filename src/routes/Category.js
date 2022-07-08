@@ -31,7 +31,8 @@ function Category() {
       dispatch(mouseCatFalse());
     };
   }, [state.whichCategory]);
-  //console.log(state.visibleItems);
+
+  // console.log(state.visibleItems);
 
   useEffect(() => {
     window.scrollTo(0, 0);

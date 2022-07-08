@@ -15,7 +15,12 @@ const allItems = createSlice({
   initialState: [],
   reducers: {
     addItem(state, action) {
-      state.push(action.payload);
+      const alreadyExist = state.some((element) => {
+        return element.id == action.payload.id;
+      });
+      if (!alreadyExist) {
+        state.push(action.payload);
+      }
     },
   },
 });
