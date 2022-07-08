@@ -1,4 +1,30 @@
 .about {
   padding-top: 15vh;
   min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.about h1 {
+  padding: 5rem 0;
+}
+
+.about h4 {
+  font-size: 1.25rem;
+  padding: 2rem 0;
+}
+
+.about button {
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  padding: 0.3rem 1rem;
+  color: var(--background-color);
+  transition: all 0.3s;
+}
+
+.about button:hover {
+  opacity: 0.6;
+  transition: all 0.3s;
 }
