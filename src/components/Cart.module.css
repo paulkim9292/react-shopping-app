@@ -1,5 +1,5 @@
 .cart {
-  position: absolute;
+  position: fixed;
   top: 4.75rem;
   right: 0.875rem;
   background-color: var(--background-color);
@@ -12,6 +12,10 @@
   border-bottom: 1px solid var(--accent-color);
   height: 2rem;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.3rem;
 }
 
 .itemContainer {

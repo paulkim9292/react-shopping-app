@@ -79,11 +79,15 @@ function Cart() {
           Remove all
         </button>
 
-        <p>{`Total: $${state.cart.reduce(
-          (total, item, index) =>
-            total + item.price * state.cartQuantity[index],
-          0
-        )}`}</p>
+        <p>{`Total: $${
+          Math.floor(
+            state.cart.reduce(
+              (total, item, index) =>
+                total + item.price * state.cartQuantity[index],
+              0
+            ) * 100
+          ) / 100
+        }`}</p>
       </div>
       <button className={styles.checkout}>Checkout</button>
     </div>

@@ -22,25 +22,33 @@ import {
 } from "./store/store";
 import Category from "./routes/Category";
 
+import { useQuery } from "react-query";
+
 function App() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return state;
   });
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  const getItems = async () => {
-    const json = await (
-      await fetch("https://fakestoreapi.com/products")
-    ).json();
-    json.map((value) => {
-      dispatch(addItem(value));
-    });
-    setLoading(false);
-  };
+  // const getItems = async () => {
+  //   const json = await (
+  //     await fetch("https://fakestoreapi.com/products")
+  //   ).json();
+  //   json.map((value) => {
+  //     dispatch(addItem(value));
+  //   });
+  //   setLoading(false);
+  // };
+
+  const { isLoading, error, data } = useQuery("itemData", () =>
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => json.map((value) => dispatch(addItem(value))))
+  );
 
   useEffect(() => {
-    getItems();
+    // getItems();
     let savedCart = localStorage.getItem("cart");
     savedCart = JSON.parse(savedCart);
     dispatch(copyFromOldCart(savedCart));
@@ -56,13 +64,19 @@ function App() {
 
   return (
     <div className="App">
-      {loading ? (
+      {isLoading && (
         <div className="loadingContainer">
           <div className="loading"></div>
           <h3>Please wait few more seconds...</h3>
           <h3>페이지가 로딩되는 동안 조금만 기다려주세요</h3>
         </div>
-      ) : (
+      )}
+      {error && (
+        <div className="failedToLoadData">
+          FAILED TO LOAD DATA... PLEASE TRY AGAIN LATER
+        </div>
+      )}
+      {data && (
         <>
           {/*NAVBAR*/}
           <Navbar />
