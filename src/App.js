@@ -23,14 +23,17 @@ import {
 import Category from "./routes/Category";
 
 import { useQuery } from "react-query";
+import { useMediaQuery } from "react-responsive";
+import NavbarMobile from "./components/NavbarMobile";
 
 function App() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return state;
   });
-  // const [loading, setLoading] = useState(true);
 
+  /******************************This code is replaced with react query********************************* */
+  // const [loading, setLoading] = useState(true);
   // const getItems = async () => {
   //   const json = await (
   //     await fetch("https://fakestoreapi.com/products")
@@ -62,6 +65,14 @@ function App() {
     localStorage.setItem("cartQuantity", JSON.stringify(state.cartQuantity));
   }, [state.cart, state.cartQuantity]);
 
+  //media query
+  const isPC = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+  const isMobileTablet = useMediaQuery({
+    query: "(max-width: 1023px)",
+  });
+
   return (
     <div className="App">
       {isLoading && (
@@ -79,7 +90,8 @@ function App() {
       {data && (
         <>
           {/*NAVBAR*/}
-          <Navbar />
+          {isPC && <Navbar />}
+          {isMobileTablet && <NavbarMobile />}
           {state.mouseCat ? <CategorySelect /> : null}
           {/*ROUTES*/}
           <Routes>

@@ -30,12 +30,14 @@ P.S. 강의를 들으며 코드를 따라 친 것이 아닌 처음부터 끝까�
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white">
 <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
+<img src="https://img.shields.io/badge/React_Query-#FF4154?style=for-the-badge&logo=react-query&logoColor=white">
 </p>
 
 ## 사용한 기술
 
 - react-router를 이용한 라우팅
 - useState, useEffect 등 기본적인 react hook
+- useMediaQuery hook을 이용한 반응형 디자인
 - Redux를 이용한 상태관리(여러 컴포넌트에서 props없이 공동 상태 사용하기)
 - AJAX를 이용하여 REST API를 GET 하고 사용하기
 - local storage를 이용한 장바구니 상태 저장

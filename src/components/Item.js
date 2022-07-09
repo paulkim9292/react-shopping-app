@@ -15,7 +15,11 @@ function Item({ id, index }) {
           <img className={styles.img} src={visibleItems[index].image} />
         </div>
         <div className={styles.itemInfo}>
-          <h3>{visibleItems[index].title}</h3>
+          <h3>
+            {visibleItems[index].title.length > 40
+              ? `${visibleItems[index].title.slice(0, 40)}...`
+              : visibleItems[index].title}
+          </h3>
           <p>{`$${visibleItems[index].price}`}</p>
         </div>
       </Link>

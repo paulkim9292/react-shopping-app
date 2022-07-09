@@ -44,7 +44,9 @@ function Cart() {
       {state.cart.map((value, index) => {
         return (
           <div className={styles.itemContainer}>
-            <img src={value.image} />
+            <div className={styles.imgContainer}>
+              <img src={value.image} />
+            </div>
             <div className={styles.titleAndPrice}>
               <div>{value.title}</div>
               <div>{`$${value.price * state.cartQuantity[index]}`}</div>

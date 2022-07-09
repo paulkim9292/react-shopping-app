@@ -1,5 +1,7 @@
 .about {
   padding-top: 15vh;
+  padding-right: 5%;
+  padding-left: 5%;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
 }
 
 .about h1 {
-  padding: 5rem 0;
+  padding: 8vh 0;
 }
 
 .about h4 {

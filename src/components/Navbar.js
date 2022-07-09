@@ -11,6 +11,7 @@ function Navbar() {
   const state = useSelector((state) => {
     return state;
   });
+
   return (
     <nav>
       <div className={styles.navLeft}>

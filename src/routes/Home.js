@@ -8,6 +8,7 @@ import {
   mouseCatFalse,
 } from "../store/store";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 function Home() {
   const dispatch = useDispatch();
@@ -26,24 +27,44 @@ function Home() {
       dispatch(cleanVisibleItems());
     };
   }, []);
+
+  //media query
+  const isPC = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+  const isMobileTablet = useMediaQuery({
+    query: "(max-width: 1023px)",
+  });
+
   return (
     <div className={styles.home}>
       <img className={styles.frontImg} src={require("../img/home.jpg")} />
-      <div className={styles.newArrival}>
-        <div className={styles.newArrivalTitle}>
-          <p>NEW ARRIVAL</p>
+      {isPC && (
+        <div className={styles.newArrival}>
+          <div className={styles.newArrivalTitle}>
+            <p>NEW ARRIVAL</p>
+            <button>
+              <Link className={styles.tab} to="/all">
+                &gt; more
+              </Link>
+            </button>
+          </div>
+          <div className={styles.newArrivalItems}>
+            {isPC &&
+              state.visibleItems.map((item, index) => {
+                return <Item key={item.id} id={item.id} index={index} />;
+              })}
+          </div>
+        </div>
+      )}
+      {isMobileTablet && (
+        <div className={styles.mobileNewArrival}>
+          <p>NEW ARRIVAL!</p>
           <button>
-            <Link className={styles.tab} to="/all">
-              &gt; more
-            </Link>
+            <Link to="/all">Click here to see more...</Link>
           </button>
         </div>
-        <div className={styles.newArrivalItems}>
-          {state.visibleItems.map((item, index) => {
-            return <Item key={item.id} id={item.id} index={index} />;
-          })}
-        </div>
-      </div>
+      )}
     </div>
   );
 }

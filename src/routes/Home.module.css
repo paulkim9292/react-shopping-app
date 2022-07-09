@@ -1,6 +1,6 @@
 .home {
   width: 100%;
-  padding-top: 4rem;
+  padding-top: 15vh;
   min-height: 70vh;
 }
 
@@ -14,17 +14,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .newArrivalTitle {
-  width: 70%;
+  width: 75%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .newArrivalTitle p {
-  font-size: 3rem;
+  /* font-size: 3rem; */
+  font-size: 2.8vw;
 }
 
 .newArrivalTitle button {
@@ -37,14 +40,21 @@
 
 .newArrivalItems {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
 }
 
-/* .items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-top: 15vh;
-    min-height: 70vh;
-  } */
+/*MOBIL / TABLET*/
+.mobileNewArrival {
+  margin: 8rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobileNewArrival p {
+  font-size: 3rem;
+}
