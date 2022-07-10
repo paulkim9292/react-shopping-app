@@ -4,7 +4,6 @@ import styles from "./NavbarMobile.module.css";
 import { Link } from "react-router-dom";
 // import redux states
 import { useDispatch, useSelector } from "react-redux";
-import { changeCart } from "../store/store";
 import { useEffect, useState } from "react";
 import { toThisCategory } from "../store/store.js";
 
@@ -119,14 +118,6 @@ function Dropdown({ setDropdown }) {
         <Link className={styles.tab} to="/about">
           ABOUT
         </Link>
-      </button>
-      <button
-        onClick={() => {
-          dispatch(changeCart());
-        }}
-        className={styles.tabContainer}
-      >
-        <div className={styles.tab}>{`CART(${state.cart.length})`}</div>
       </button>
     </div>
   );

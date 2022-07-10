@@ -8,6 +8,7 @@
   max-height: 80vh;
   border-radius: 0.5rem;
   overflow-y: auto;
+  z-index: 2;
 }
 
 .cartTitle {
@@ -96,8 +97,10 @@
 @media screen and (max-width: 1023px) {
   .cart {
     top: unset;
-    bottom: 0.875rem;
-    width: 93%;
+    right: unset;
+    left: 1.875rem;
+    bottom: 1.875rem;
+    width: 70%;
     max-height: 50%;
   }
 

@@ -25,6 +25,7 @@ import Category from "./routes/Category";
 import { useQuery } from "react-query";
 import { useMediaQuery } from "react-responsive";
 import NavbarMobile from "./components/NavbarMobile";
+import CartButtonMobile from "./components/CartButtonMobile";
 
 function App() {
   const dispatch = useDispatch();
@@ -92,7 +93,7 @@ function App() {
           {/*NAVBAR*/}
           {isPC && <Navbar />}
           {isMobileTablet && <NavbarMobile />}
-          {state.mouseCat ? <CategorySelect /> : null}
+          {state.mouseCat && <CategorySelect />}
           {/*ROUTES*/}
           <Routes>
             <Route path="/" element={<Home />} />
@@ -106,7 +107,8 @@ function App() {
           </Routes>
           {/*Cart*/}
           {state.cartState ? <Cart /> : null}
-          <ScrollToTop />
+          {isPC && <ScrollToTop />}
+          {isMobileTablet && <CartButtonMobile />}
           <Footer />
         </>
       )}

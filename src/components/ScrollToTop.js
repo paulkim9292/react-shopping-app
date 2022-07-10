@@ -22,7 +22,7 @@ function ScrollToTop() {
   return (
     <>
       {showTopBtn ? (
-        <button onClick={goToTop} className="toTopBtn">
+        <button onClick={goToTop} className="toTopBtnANDCartBtn">
           TOP
         </button>
       ) : null}

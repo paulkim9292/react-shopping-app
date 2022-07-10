@@ -20,6 +20,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  z-index: 1;
 }
 
 .tabContainer {
@@ -30,17 +31,18 @@
 }
 
 .tab {
+  display: block;
   text-decoration: none;
   color: var(--background-color);
   height: 100%;
-  padding: 0rem 40%;
+  width: 100%;
 }
 
 .catDropdown {
   border: 10px solid var(--background-color);
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  width: 85%;
   padding: 0.8rem 0rem;
 }
 
@@ -48,4 +50,5 @@
   text-decoration: none;
   color: var(--background-color);
   padding: 0.8rem 0rem;
+  font-size: 80%;
 }
