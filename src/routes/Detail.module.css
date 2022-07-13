@@ -111,7 +111,7 @@
   height: 100%;
   padding: 0rem 10%;
   color: var(--background-color);
-  font-size: 3.2vw;
+  font-size: 2rem;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
 }
@@ -148,5 +148,9 @@
 
   .addToCart {
     width: 50vw;
+  }
+
+  .tabBar button {
+    font-size: 3.2vw;
   }
 }
