@@ -8,15 +8,19 @@ P.S. 강의를 들으며 코드를 따라 친 것이 아닌 처음부터 끝까�
 
 ## 데스크탑
 
+https://user-images.githubusercontent.com/49368863/178649922-c1b8cf57-d4ab-4159-b06c-3777800ea9d0.mp4
+
 ## 모바일
+
+https://user-images.githubusercontent.com/49368863/178649485-4951bdb4-daa6-452a-acc3-5c158cc03722.mp4
 
 ## 주요 기능
 
 - 모든 상품보기, 추가로 불러오기
-- 카테고리별로 상품보기
+- 카테고리별 상품보기
 - 상품 상세페이지
   - 상세페이지, 리뷰, Q&A 탭 클릭으로 이동하기
-- 장바구니 (저장됨)
+- 장바구니 (local storage에 저장됨)
   - 장바구니에 상품넣기 (중복시 수량증가)
   - 총 금액 표시
 - 화면 맨위로 이동하기
@@ -30,7 +34,7 @@ P.S. 강의를 들으며 코드를 따라 친 것이 아닌 처음부터 끝까�
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white">
 <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
-<img src="https://img.shields.io/badge/React_Query-#FF4154?style=for-the-badge&logo=react-query&logoColor=white">
+<img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white">
 </p>
 
 ## 사용한 기술
@@ -54,6 +58,7 @@ SINSA
 │ ├─components                  # 컴포넌트들과 관련 module.css 파일들
 │ │     ├─Cart.js               # 장바구니
 │ │     ├─Cart.module.css
+│ │     ├─CartButtonMobile.js   # 모바일뷰 장바구니
 │ │     ├─CategorySelect.js     # 카테고리 드롭다운 메뉴
 │ │     ├─CategorySelect.module.css
 │ │     ├─Footer.js             # footer
@@ -61,6 +66,8 @@ SINSA
 │ │     ├─Item.js               # 상품 컴포넌트
 │ │     ├─Item.module.js
 │ │     ├─Navbar.js             # navbar
+│ │     ├─Navbar.module.css
+│ │     ├─Navbar.js             # 모바일뷰 navbar
 │ │     ├─Navbar.module.css
 │ │     ├─ScrollToTop.js        # 페이지 맨위로 가기 버튼 기능
 │ ├─img
